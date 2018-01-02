@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fancyBox - Fancy jQuery Lightbox Alternative | Demonstration</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="../lib/jquery-1.9.0.min.js"></script>
+
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="../lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="../source/jquery.fancybox.js?v=2.1.4"></script>
+	<link rel="stylesheet" type="text/css" href="../source/jquery.fancybox.css?v=2.1.4" media="screen" />
+
+	<!-- Add Button helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="../source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+	<script type="text/javascript" src="../source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+	<!-- Add Thumbnail helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="../source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+	<script type="text/javascript" src="../source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+	<!-- Add Media helper (this is optional) -->
+	<script type="text/javascript" src="../source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+	<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 50px #222;
+		}
+	</style>
+	<link rel="stylesheet" href="style.css">   <!--подключаем файл со стилями (файл цвета)-->
+</head>
+<body>
+<header>
+<div class="header">  <!--слева вверху коорджинаты фирмы-->
+	<img src="Images/VZH/жалюзи.jpg"  alt="вертикальные жалюзи" title="вертикальные жалюзи" align="center"> 
+	
+	<h1>  <a href="index.html"> Жалюзи  </a> </h1>
+	<p> <img src="Images/VZH/жалюзи.jpg" alt="жалюзи" title="вертикальные жалюзи">  </p>
+	
+	<div class="rekvizity">
+		<p><b>      Украина, Киев, ООО "ВИСТ"  	</b></p>
+		<p><b>      тел      +38-050-3587113			    </b></p>
+		<p><b>      тел/факс +38-044-4087144			    </b></p>
+		<p><b>      e-mail: <a href="mailto:vik@vistco.kiev.ua">vik@vistco.kiev.ua </a></b></p>
+		<p><i>      www.shade.kiev.ua  				    </i></p>
+	</div>
+	
+	<div class="movy">
+			<div class="mova">
+				<button title="Українська" onclick= "location.href='vzhaluziukr.html'"> Укр </button>
+			</div>
+		    <div class="mova">
+			    <button title="Русский"    onclick= "location.href='vzhaluzi.html'">   Рус  </button>
+			</div>
+	</div>		
+</div>
+</header>              
+
+<div class="main">
+<h3>Вертикальные жалюзи</h3>
+<p> Вертикальные жалюзи - оригинальное решение декорирования окон. Они защищают от солнца и позволяют привнести в интерьер оригинальные идеи.
+Широкий выбор тканей, а также использование так называемой мультифактуры (комбинации нескольких оттенков на одном карнизе) для вертикальных 
+жалюзи позволяют реализовать самые смелые интерьерные решения. </p>
+
+<p> Вызов специалиста, предоставление размеров, консультации обычно осуществляются в  телефонном режиме. Помощь в выборе 
+<!--<a href="materialy.html">--> ткани и снятии <!--<a href="rozmiry.html"> -->размеров вам могут оказать наши специалисты непосредственно на объєкте.</p>
+<p> Заказ выполняется после его согласования. Срок выполнения заказа зависит от загруженности производства
+и составляет 2 - 7 календарных дней. Работы производятся по Киеву и области. Иногородним осуществляется доставка  "Новой почтой", "Деливери" или другим перевозчиком. 
+ </p>
+ </div>
+ <h1>Вертикальные жалюзи</h1>
+
+	<h3>Широкий вибор тканей, а также использование так называемой мультифактуры для вертикальных жалюзи позволяют реализовывать самые смелые интерьєрные решения.</h3>
+	<p>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh1.jpg"  title="Вертикальные жалюзи"><img src="Images/VZH/vzh1small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh3.jpg"  title="Вертикальные жалюзи"><img src="Images/VZH/vzh3small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh6.jpg"  title="Вертикальные жалюзи"><img src="Images/VZH/vzh6small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh8.jpg"  title="Вертикальные жалюзи"><img src="Images/VZH/vzh8small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh9.jpg"  title="Вертикальные жалюзи"><img src="Images/VZH/vzh9small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh10.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh10small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh11.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh11small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh13.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh13small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh14.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh14small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh16.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh16small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh17.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh17small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh18.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh18small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh20.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh20small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh21.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh21small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh23.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh23small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh25.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh25small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh26.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh26small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh27.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh27small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh28.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh28small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh29.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh29small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh30.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh30small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh31.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh31small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh34.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh34small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh35.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh35small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh37.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh37small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh39.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh39small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh40.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh40small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh42.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh42small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh43.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh43small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh45.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh45small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh48.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh48small.jpg" alt="Вертикальные жалюзи" /></a>
+		<a class="fancybox-effects-a" href="Images/VZH/vzh49.jpg" title="Вертикальные жалюзи"><img src="Images/VZH/vzh49small.jpg" alt="Вертикальные жалюзи" /></a>
+	</p>
+	
+</body>
+</html>
