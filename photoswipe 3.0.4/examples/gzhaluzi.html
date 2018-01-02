@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PhotoSwipe</title>
+	<meta charset="utf-8">  <!--  сказали браузеру что докум написан в кодировке utf-8 (ее устанавливали при настройке)  -->
+	<meta name="author" content="Ste Brennan - Code Computerlove - http://www.codecomputerlove.com/" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	
+	<link href="stylesphotoswipe.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="style.css">   <!--подключаем файл со стилями (файл цвета)-->
+	
+	<link href="../photoswipe.css" type="text/css" rel="stylesheet" />
+	
+	<script type="text/javascript" src="../lib/klass.min.js"></script>
+	<script type="text/javascript" src="../code.photoswipe-3.0.4.min.js"></script>
+	
+	
+	<script type="text/javascript">
+
+		(function(window, PhotoSwipe){
+		
+			document.addEventListener('DOMContentLoaded', function(){
+			
+				var
+					options = {},
+					instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
+					
+					
+					// onBeforeShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeShow, function(e){
+						console.log('onBeforeShow');
+					});
+					
+					// onShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onShow, function(e){
+						console.log('onShow');
+					});
+					
+					// onBeforeHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeHide, function(e){
+						console.log('onBeforeHide');
+					});
+					
+					// onHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onHide, function(e){
+						console.log('onHide');
+					});
+					
+					// onDisplayImage
+					instance.addEventHandler(PhotoSwipe.EventTypes.onDisplayImage, function(e){
+						console.log('onDisplayImage{');
+						console.log('onDisplayImage - e.action = ' + e.action);
+						console.log('onDisplayImage - e.index = ' + e.index);
+						console.log(instance.getCurrentImage());
+						console.log('onDisplayImage}');
+					});
+					
+					// onResetPosition
+					instance.addEventHandler(PhotoSwipe.EventTypes.onResetPosition, function(e){
+						console.log('onResetPosition');
+					});
+					
+					// onSlideshowStart
+					instance.addEventHandler(PhotoSwipe.EventTypes.onSlideshowStart, function(e){
+						console.log('onSlideshowStart');
+					});
+					
+					// onSlideshowStop
+					instance.addEventHandler(PhotoSwipe.EventTypes.onSlideshowStop, function(e){
+						console.log('onSlideshowStop');
+					});
+					
+					// onTouch
+					instance.addEventHandler(PhotoSwipe.EventTypes.onTouch, function(e){
+						console.log('onTouch{');
+						console.log('onTouch - e.action = ' + e.action);
+						console.log('onTouch - e.point = ');
+						console.log(e.point);
+						console.log('onTouch}');
+					});
+					
+					// onBeforeCaptionAndToolbarShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeCaptionAndToolbarShow, function(e){
+						console.log('onBeforeCaptionAndToolbarShow');
+					});
+					
+					// onCaptionAndToolbarShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onCaptionAndToolbarShow, function(e){
+						console.log('onCaptionAndToolbarShow');
+					});
+					
+					// onBeforeCaptionAndToolbarHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeCaptionAndToolbarHide, function(e){
+						console.log('onBeforeCaptionAndToolbarHide');
+					});
+					
+					// onCaptionAndToolbarHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onCaptionAndToolbarHide, function(e){
+						console.log('onCaptionAndToolbarHide');
+					});
+					
+					// onToolbarTap
+					instance.addEventHandler(PhotoSwipe.EventTypes.onToolbarTap, function(e){
+						console.log('onToolbarTap');
+						console.log(e);
+					});
+					
+					// onBeforeZoomPanRotateShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeZoomPanRotateShow, function(e){
+						console.log('onBeforeZoomPanRotateShow');
+					});
+					
+					// onZoomPanRotateShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onZoomPanRotateShow, function(e){
+						console.log('onZoomPanRotateShow');
+					});
+					
+					// onBeforeZoomPanRotateHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeZoomPanRotateHide, function(e){
+						console.log('onBeforeZoomPanRotateHide');
+					});
+					
+					// onZoomPanRotateHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onZoomPanRotateHide, function(e){
+						console.log('onZoomPanRotateHide');
+					});
+					
+					// onZoomPanRotateTransform
+					instance.addEventHandler(PhotoSwipe.EventTypes.onZoomPanRotateTransform, function(e){
+						console.log('onZoomPanRotateTransform');
+						console.log(e);
+					});
+					
+			}, false);
+			
+			
+		}(window, window.Code.PhotoSwipe));
+		
+	</script>
+	
+</head>
+<body>
+<header>
+<div class="header">  <!--слева вверху коорджинаты фирмы-->
+	<img src="http://shade.kiev.ua/Images/VZH/жалюзи.jpg"  alt="горизонтальные жалюзи" title="горизонтальные жалюзи" align="center">
+	
+	<h1>  <a href="../../index.html"> Жалюзи  </a> </h1>
+	<p> <img src="http://shade.kiev.ua/Images/VZH/жалюзи.jpg" alt="жалюзи" title="горизонтальные жалюзи">  </p>
+	
+	<div class="rekvizity">
+		<p><b>      Украина, Киев, ООО "ВИСТ"  	</b></p>
+		<p><b>      тел      +38-050-3587113			    </b></p>
+		<p><b>      тел/факс +38-044-4087144			    </b></p>
+		<p><b>      e-mail: <a href="mailto:vik@vistco.kiev.ua">vik@vistco.kiev.ua </a></b></p>
+		<p><i>      www.shade.kiev.ua  				    </i></p>
+	</div>
+	
+	<div class="movy">
+			<div class="mova">
+				<button title="Українська" onclick= "location.href='../../gzhaluziukr.html'"> Укр </button>
+			</div>
+		    <div class="mova">
+			    <button title="Русский"    onclick= "location.href='gzhaluzi.html'">   Рус  </button>
+			</div>
+	</div>		
+</div>
+</header>              
+
+<div class="main">
+<h3>Горизонтальные жалюзи </h3>
+<p> Горизонтальные жалюзи - классический вариант решения солнцезащиты. Горизонтальные ламмели, изменяя угол наклона, регулируют световой поток.
+Пропуская свет в момещение, они полностью закрывают его от напрошенных взглядов. Горизонтальные жалюзи возможны во внутрирамном исполнении (между стекол
+деревянного окна), и в варианте для наклонных окон (с дополнительными направляющими) 
+Комбинируя различные цвета ламмелей на одном карнизе можно получать оригинальные дизайнерские решения. </p>
+
+<p> Вызов специалиста, предоставление размеров, консультации обычно осуществляются в  телефонном режиме. Помощь в выборе 
+<!--<a href="materialy.html">--> ткани и снятии <!--<a href="rozmiry.html"> -->размеров вам могут оказать наши специалисты непосредственно на объєкте.</p>
+<p> Заказ выполняется после его согласования. Срок выполнения заказа зависит от загруженности производства
+и составляет 2 - 7 календарных дней. Работы производятся по Киеву и области. Иногородним осуществляется доставка  "Новой почтой" или "Деливери". 
+ </p>
+ </div>
+
+<!--  <div id="Header">
+	<a href="http://www.codecomputerlove.com"><img src="images/codecomputerlovelogo.gif" width="230" height="48" alt="Code Computerlove" /></a>
+</div>   -->
+
+<div id="MainContent">
+
+	<div class="page-content">
+		<h1>Горизонтальные жалюзи. Фотогалерея.</h1>
+	</div>
+	
+	<ul id="Gallery" class="gallery">
+		
+		<li><a href="../../Images/GZH/gzh0.jpg"><img src="../../Images/GZH/gzh0.jpg" alt="Горизонтальные жалюзи0" /></a></li>
+		<li><a href="../../Images/GZH/gzh1.jpg"><img src="../../Images/GZH/gzh1.jpg" alt="Горизонтальные жалюзи1" /></a></li>
+		<li><a href="../../Images/GZH/gzh2.jpg"><img src="../../Images/GZH/gzh2.jpg" alt="Горизонтальные жалюзи2" /></a></li>
+		<li><a href="../../Images/GZH/gzh3.jpg"><img src="../../Images/GZH/gzh3.jpg" alt="Горизонтальные жалюзи3" /></a></li>
+		<li><a href="../../Images/GZH/gzh4.jpg"><img src="../../Images/GZH/gzh4.jpg" alt="Горизонтальные жалюзи4" /></a></li>
+		<li><a href="../../Images/GZH/gzh5.jpg"><img src="../../Images/GZH/gzh5.jpg" alt="Горизонтальные жалюзи5" /></a></li>
+		<li><a href="../../Images/GZH/gzh6.jpg"><img src="../../Images/GZH/gzh6.jpg" alt="Горизонтальные жалюзи6" /></a></li>
+		<li><a href="../../Images/GZH/gzh7.jpg"><img src="../../Images/GZH/gzh7.jpg" alt="Горизонтальные жалюзи7" /></a></li>
+		<li><a href="../../Images/GZH/gzh8.jpg"><img src="../../Images/GZH/gzh8.jpg" alt="Горизонтальные жалюзи8" /></a></li>
+		<li><a href="../../Images/GZH/gzh9.jpg"><img src="../../Images/GZH/gzh9.jpg" alt="Горизонтальные жалюзи9" /></a></li>
+		<li><a href="../../Images/GZH/gzh10.jpg"><img src="../../Images/GZH/gzh10.jpg" alt="Горизонтальные жалюзи10" /></a></li>
+		<li><a href="../../Images/GZH/gzh11.jpg"><img src="../../Images/GZH/gzh11.jpg" alt="Горизонтальные жалюзи11" /></a></li>
+		
+	</ul>
+	
+</div>	
+
+	
+<div id="Footer">
+	<p><small>&copy; 2011 Code Computerlove Ltd - new media agency</small></p>
+
+	<div id="SocialLinks">
+		<a href="http://blog.codecomputerlove.com/"><img src="images/blogicon.png" width="32" height="32" alt="Blog" /></a>
+		<a href="http://www.twitter.com/computerlovers"><img src="images/twittericon.png" width="32" height="32" alt="Twitter" /></a>
+		<a href="http://www.facebook.com/CodeComputerlove"><img src="images/facebookicon.png" width="32" height="32" alt="Facebook" /></a>
+		<a href="http://www.flickr.com/photos/codecomputerlove"><img src="images/flickricon.png" width="32" height="32" alt="Flickr" /></a>
+	</div>
+	
+</div>
+
+</body>
+</html>
