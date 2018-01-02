@@ -1,0 +1,172 @@
+
+*{
+	margin: 0;  /*убрали отступы, вненшний*/
+	padding: 0;  /*убрали отступы, внутренний*/
+	box-sizing: border-box;   /*педдинг не будет раздвигать рамки и пединг будет расти внутрь*/
+}
+
+
+
+body {
+font-size: 16px;
+font-family: Tahoma, Geneva, sans-serif;	
+}
+
+.header{
+
+background-color:#CFE0FB; /*  #79A6F1;6bc5e3  */
+/*color: #020202;  cc0066;но ссылки по умолчанию подчеркнутые и синие*/
+	position: relative;
+	width: 100%;
+    height: 222px;
+	background-color: #25B33f;
+	padding: 1px;
+	}
+.header h1 {
+		position: absolute;
+		top: 20px;
+		left: 320px;
+}
+.header  img{
+	width: 100%;
+	height: 222px;
+	position: relative;
+}
+.header p img {
+	width: 130px; 
+	height: 130px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+	
+.header .rekvizity {
+		position: absolute;
+		top: 70px;
+		left: 320px;
+}	
+.header .movy  {
+		position: absolute;
+		bottom: 1px;
+		right: 170px;
+		margin: 11px;	
+}
+
+button {
+background: #cccccc; 
+		width: 80px; 
+		height: 40px; 
+		border-radius: 8px; 
+		box-shadow: 0px 1px 5px; 
+		font-size: 20px;
+}
+	
+	
+.razdely { 
+color: #020202;
+text-decoration: none;
+margin: 10px auto;
+list-style-type:none;/*отменили стили для ссылок*/
+}
+
+.razdely  .razdel1{
+	display: inline-block; /*выстроили в ряд 3 наших элемента*/
+	/*margin: 0 10px;  небольшой отступ справа и слева, сверху снизу, слева справа    это внешний отступ*/
+	
+	margin-right: 20px;  /*небольшой отступ справа  10 пиксел*/
+	/*border: 1px solid #cccccc;   задаем рамку*/
+}
+		
+}
+.razdely .razdel1 {
+border: solid 1px #C7CADD;
+	background-color: #020302;
+	margin: 3px 10px 3px 10px;
+	padding: 0px;
+	float: left;
+	height: 290px;
+	width: 200px;
+}
+.razdel1 .img img{
+	margin: 5px 0px 0px 5px;
+	padding: 1;
+	width: 220px;
+	height: 300px;
+}
+
+
+.main{
+    /*background: #E7FBF6;*/
+	position: relative;
+	top: 3px;
+	border: 3px solid  #00ff00;
+	padding: 20px;  /*в педдинге не работает авто*/
+	margin: 10px auto;
+	width: 1023px;
+	min-height: 200px;
+}
+
+.main p{
+	text-indent: 55px;
+}
+/*   начало добавления фото   */
+.margin10 { margin: 10px
+}
+.block {
+	position: relative;
+	margin: 2px 8px 2px 8px;
+	
+	padding: 0;
+	font-size: 14px;
+}
+.block .element{
+	border: solid 1px #C7CADD;
+	margin: 0px 3px 3px 0px;
+	padding: 0px 0px 0px 0px;
+	float: left;
+	height: 140px;
+	width: 200px;
+}
+
+.block .element:hover{
+	border: solid 1px #000;
+	margin: 0px 0px 0px 0px;
+	padding: 0;
+	float: left;
+	height: 140px;
+	width: 200px;
+	background: #FFFAE7;
+}
+
+
+.block .img img{
+	width: 200px;
+	height: 140px;
+}
+
+	
+	/*  конец	добавления фото   */
+footer{
+border: 3px  solid   #CFE0FB;
+position:relative;
+top: 80px;
+}
+
+footer h2 {
+text-align: center;
+border: 44px solid #CFE0FB;   /*задаем рамку*/
+margin: 1px; /*отступ с 4-х сторон по 50- пикс внешний*/
+padding: 15px;/*отступ с 4-х сторон по 50- пикс внутренний*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
